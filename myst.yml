@@ -1,0 +1,40 @@
+version: 1
+project:
+  jupyter:
+     binder:
+      repo: elizadawson/gstatsimbook
+      ref: main
+  title: GStatSim
+  authors:
+    - name: Emma MacKie
+    - name: Michael Field
+    - name: Lijing Wang
+    - name: Nathan Schoedl
+    - name: Matthew Hibbs
+  github: elizadawson/gstatsimbook
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: intro.md
+    - file: installation.md
+    - file: 0_Wrangle_data.ipynb
+    - file: 1_Experimental_Variogram.ipynb
+    - file: 2_Variogram_model.ipynb
+    - file: 3_Simple_kriging_and_ordinary_kriging.ipynb
+    - file: 4_Sequential_Gaussian_Simulation.ipynb
+    - file: 5_interpolation_with_anisotropy.ipynb
+    - file: 6_non-stationary_SGS_example1.ipynb
+    - file: 7_non-stationary_SGS_example2.ipynb
+    - file: 8_interpolation_with_a_trend.ipynb
+    - file: 9_cokriging_and_cosimulation_MM1.ipynb
+    - file: 10_large_radar_dataset.ipynb
+site:
+  options:
+    logo: GatorGlaciologyLogo-01.jpg
+    analytics_google: G-EGYRCCXKGB
+    folders: true
+  template: book-theme
