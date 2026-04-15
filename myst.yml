@@ -31,7 +31,8 @@ project:
     - file: 7_non-stationary_SGS_example2.ipynb
     - file: 8_interpolation_with_a_trend.ipynb
     - file: 9_cokriging_and_cosimulation_MM1.ipynb
-    - file: 10_sea_ice_albedo_testcase.ipynb
+    - file: 10_large_radar_dataset.ipynb
+    - file: 11_sea_ice_albedo_testcase.ipynb
 site:
   options:
     logo: GatorGlaciologyLogo-01.jpg
