@@ -65,18 +65,20 @@ def mplot1(Pred_grid_xy, sim, rows, cols, title, xlabel='X [m]', ylabel='Y [m]',
     ax.axis('scaled')
     plt.show()
     
-def mplot2_std(Pred_grid_xy, pred, std, rows, cols, title1, title2):    
+def mplot2_std(Pred_grid_xy, pred, std, rows, cols, title1, title2,
+               vmin=-400, vmax=600, std_vmin=0, std_vmax=150,
+               clabel='Bed [m]', std_clabel='Bed [m]'):
     x_mat = Pred_grid_xy[:,0].reshape((rows, cols))
     y_mat = Pred_grid_xy[:,1].reshape((rows, cols))
     pred_mat = pred.reshape((rows, cols))
     std_mat = std.reshape((rows, cols))
-    
+
     xmin = Pred_grid_xy[:,0].min(); xmax = Pred_grid_xy[:,0].max()
     ymin = Pred_grid_xy[:,1].min(); ymax = Pred_grid_xy[:,1].max()
 
     fig, [ax1, ax2] = plt.subplots(1, 2, figsize=(10,5))
 
-    im = ax1.pcolormesh(x_mat, y_mat, pred_mat, vmin=-400, vmax=600, cmap='gist_earth')
+    im = ax1.pcolormesh(x_mat, y_mat, pred_mat, vmin=vmin, vmax=vmax, cmap='gist_earth')
     ax1.set_xticks(np.linspace(xmin, xmax, 5))
     ax1.set_yticks(np.linspace(ymin, ymax, 5))
     ax1.set_title(title1)
@@ -84,9 +86,9 @@ def mplot2_std(Pred_grid_xy, pred, std, rows, cols, title1, title2):
     ax1.axis('scaled')
 
     # make colorbar
-    cbar = make_colorbar(fig, im, -400, 600, 'Bed [m]', ax=ax1)
+    cbar = make_colorbar(fig, im, vmin, vmax, clabel, ax=ax1)
 
-    im = ax2.pcolormesh(x_mat, y_mat, std_mat, vmin=0, vmax=150, cmap='gist_earth')
+    im = ax2.pcolormesh(x_mat, y_mat, std_mat, vmin=std_vmin, vmax=std_vmax, cmap='gist_earth')
     ax2.set_xticks(np.linspace(xmin, xmax, 5))
     ax2.set_yticks(np.linspace(ymin, ymax, 5))
     ax2.set_title(title2)
@@ -94,7 +96,7 @@ def mplot2_std(Pred_grid_xy, pred, std, rows, cols, title1, title2):
     ax2.axis('scaled')
 
     # make colorbar
-    cbar = make_colorbar(fig, im, 0, 150, 'Bed [m]', ax=ax2)
+    cbar = make_colorbar(fig, im, std_vmin, std_vmax, std_clabel, ax=ax2)
 
     plt.tight_layout()
     plt.show()
