@@ -10,5 +10,10 @@ dependencies:
   - scikit-learn
   - scikit-gstat
   - tqdm
+  # dev dependencies
+  - earthaccess
+  - geopandas
+  - pyarrow
+  - jupyter
   - pip:
     - gstatsim
