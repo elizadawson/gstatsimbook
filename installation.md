@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: -all
+  #cell_metadata_filter: -all ## May not be needed for MyST
   formats: md:myst
   text_representation:
     extension: .md
